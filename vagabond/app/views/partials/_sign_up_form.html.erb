@@ -1,0 +1,48 @@
+<div class="row">
+    <form class="col s12">
+    <%= form_for :user, url: "/sign_up", method: "POST" do |f| %>
+
+      <div class="row">
+        <div class="input-field col s12">
+            <label>City</label>
+          <%= f.text_field :city_id %>
+          <div class="input-field col s12">
+            <select>
+              <option value="" disabled selected>Select a City</option>
+              <%= @cities.each do |c| %>
+              <option value="<%= c.id%>"><%= c.name%></option>
+            </select>
+            <% end %>
+
+            </div>
+        </div>
+      </div>
+      <!-- how are we going to get the cities to display so that the user can select one by name -->
+
+
+      <div class="row">
+        <div class="input-field col s12">
+            <%= f.text_field :image_url %>
+          <label for="city_id">Image Url</label>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="input-field col s12">
+            <%= f.email_field :email %>
+          <label for="email">Email</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+            <%= f.password_field :password %>
+          <label for="password">Password</label>
+        </div>
+      </div>
+
+        <%= f.submit "Submit" %>
+
+    </form>
+
+      <% end %>
+  </div>
