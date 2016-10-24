@@ -16,7 +16,7 @@ Project 2.0 WDI-32
 [Trello](https://trello.com/gavagabond)
 
 ## Schema
-<br><img src="https://github.com/amblount/destination-tracker/blob/master/images/vagabond-schema.png" width="600">
+![alt text](https://github.com/sf-wdi-gaia/project-vagabond/blob/master/schema.png)
 
 ## Wireframes
 ![alt text](https://github.com/sf-wdi-gaia/project-vagabond/blob/master/wireframes.png)
