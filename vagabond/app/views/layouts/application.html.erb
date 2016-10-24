@@ -9,6 +9,9 @@
   </head>
 
   <body>
-    <%= yield %>
+    <div class='container'>
+      <%= render 'partials/nav' %>
+      <%= yield %>
+    </div>
   </body>
 </html>
