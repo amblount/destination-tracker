@@ -11,13 +11,13 @@ class PostsController < ApplicationController
   end
 
   def index
-    @posts = Post.all
+    @posts = User.find(1).posts
+    # @posts = User.find(current_user.id).posts
   end
 
   def show
     post_id = params[:id]
     @post = Post.find_by_id(post_id)
-    @user = User.all
   end
 
   private
