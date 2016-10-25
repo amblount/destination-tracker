@@ -5,9 +5,15 @@ class UsersController < ApplicationController
   end
 
   def create
-    p "xxxxx"
     @user = User.create(user_params)
-    p "XXXXX"
+
+    if @user.valid?
+        flash[:success] = "Thanks! Please log in."
+        redirect_to "/login"
+    else
+        flash[:error] = "Something went wrong."
+        redirect_to signup_path
+    end
     redirect_to '/'
   end
 
