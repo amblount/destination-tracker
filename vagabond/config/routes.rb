@@ -23,11 +23,19 @@ Rails.application.routes.draw do
 
   get 'cities/show'
 
-  get 'users/new'
 
-  get 'users/edit'
 
-  get 'users/show'
+  # post '/users', to: 'users#create'
 
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  # get 'users/new', to: 'users#new', as: 'new_user'
+
+  # get 'users/edit'
+
+  # get 'users/show'
+
+
+
+  resources :users, only: [] do
+    resources :posts, only: [:new, :edit, :index, :show]
+  end
 end
