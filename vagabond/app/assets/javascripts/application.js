@@ -10,10 +10,18 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require jquery
+//=require jquery
 //= require jquery.turbolinks
-//= require materialize
+//=require materialize
 //= require turbolinks
 //= require materialize/extras/nouislider
 //= require jquery_ujs
 //= require_tree .
+$(document).on('page:change', function() {
+	console.log("Hi2")
+    $('select').material_select();
+  });
+$(document).ready(function() {
+	console.log("Hi")
+    $('select').material_select();
+  });
