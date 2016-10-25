@@ -12,7 +12,7 @@ class UsersController < ApplicationController
         redirect_to "/login"
     else
         flash[:error] = "Something went wrong."
-        redirect_to signup_path
+        redirect_to login_path
     end
     redirect_to '/'
   end
@@ -21,6 +21,7 @@ class UsersController < ApplicationController
   end
 
   def show
+    @user = User.find(params[:id])
   end
 
   private
