@@ -1,5 +1,6 @@
 class SessionsController < ApplicationController
   def new
+
   end
 
   def create
@@ -25,5 +26,11 @@ class SessionsController < ApplicationController
         flash[:error] = "Email was not found"
         redirect_to :back
     end
+    
+end
+
+def destroy
+  session[:current_user] = nil
+  current_user = nil
 end
 end

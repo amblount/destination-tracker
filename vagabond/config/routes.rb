@@ -1,29 +1,16 @@
 Rails.application.routes.draw do
-  root "/login" => 'sessions#new'
+  # root to: "/login" => 'sessions#new'
+  resources :sessions
+  resources :users
+  resources :posts
 
   get '/login' => 'sessions#new'
 
   post '/login' => 'sessions#create'
 
   delete '/logout' => 'sessions#destroy'
-
-  get 'posts/new'
-
-  get 'posts/edit'
-
-  get 'posts/index'
-
-  get 'posts/show'
-
-  get 'cities/new'
-
-  get 'cities/edit'
-
-  get 'cities/index'
-
-  get 'cities/show'
-
-
+  #
+  # resources :cities
 
   # post '/users', to: 'users#create'
 
@@ -34,8 +21,8 @@ Rails.application.routes.draw do
   # get 'users/show'
 
 
-
-  resources :users, only: [] do
+  #
+  resources :users do
     resources :posts, only: [:new, :edit, :index, :show]
   end
 end
