@@ -8,7 +8,7 @@ Rails.application.routes.draw do
  delete '/logout' => 'sessions#destroy'
 
  resources :cities do
-  resources :posts, only: [:new, :create]
+  resources :posts
  end
 
  # get 'cities/new'
