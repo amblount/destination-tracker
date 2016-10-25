@@ -21,11 +21,17 @@ Rails.application.routes.draw do
 
   get 'cities/show'
 
-  get 'users/new'
+  resources :users
 
-  get 'users/edit'
+  # post '/users', to: 'users#create'
 
-  get 'users/show'
+  # get 'users/new', to: 'users#new', as: 'new_user' 
+
+  # get 'users/edit'
+
+  # get 'users/show'
+
+
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

@@ -5,7 +5,10 @@ class UsersController < ApplicationController
   end
 
   def create
+    p "xxxxx"
     @user = User.create(user_params)
+    p "XXXXX"
+    redirect_to '/'
   end
 
   def edit
@@ -17,6 +20,6 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:email, :password, :city_id)
+    params.require(:user).permit(:email, :password, :city_id, :image_url)
   end
 end
