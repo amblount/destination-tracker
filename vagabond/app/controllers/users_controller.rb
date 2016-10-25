@@ -5,16 +5,27 @@ class UsersController < ApplicationController
   end
 
   def create
-    p "xxxxx"
     @user = User.create(user_params)
-    p "XXXXX"
-    redirect_to '/'
+
+    if @user.valid?
+        flash[:success] = "Thanks! Please log in."
+        redirect_to "/login"
+    else
+        flash[:error] = "Something went wrong."
+        redirect_to login_path
+    end
   end
 
   def edit
   end
 
+  def update
+    @user.update(user_params)
+    redirect_to @user
+  end
+
   def show
+    @user = User.find(params[:id])
   end
 
   private

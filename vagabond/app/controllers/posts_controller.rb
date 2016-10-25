@@ -1,23 +1,48 @@
 class PostsController < ApplicationController
   def new
     @post = Post.new
+    @city = City.find(params[:city_id])
   end
 
   def edit
+    @post = Post.find(params[:id])
+    @city = City.find(params[:city_id])
+  end
+
+  def update
+    Post.find(params[:id]).update(post_params)
+    @city = City.find(params[:city_id])
+
+    redirect_to city_path(@city)
+
   end
 
   def create
-    @post = Post.create(post_params)
+    # associate post with a city
+    post = City.find(params[:city_id]).posts.new(post_params)
+    post.user_id = current_user.id
+    post.save
+
+    city = City.find(params[:city_id])
+    redirect_to city_path(city)
   end
 
   def index
-    @posts = Post.all
+    @posts = User.find(current_user.id).posts
   end
 
   def show
     post_id = params[:id]
     @post = Post.find_by_id(post_id)
-    @user = User.all
+  end
+
+  def destroy
+    post = Post.find(params[:id])
+    city = post.city.id
+    post.destroy
+
+
+    redirect_to city_path(city)
   end
 
   private
