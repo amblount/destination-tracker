@@ -6,6 +6,14 @@ class UsersController < ApplicationController
 
   def create
     @user = User.create(user_params)
+
+    if @user.valid?
+        flash[:success] = "Thanks! Please log in."
+        redirect_to "/login"
+    else
+        flash[:error] = "Something went wrong."
+        redirect_to signup_path
+    end
   end
 
   def edit
