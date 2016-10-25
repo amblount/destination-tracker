@@ -12,15 +12,20 @@ class UsersController < ApplicationController
         redirect_to "/login"
     else
         flash[:error] = "Something went wrong."
-        redirect_to signup_path
+        redirect_to login_path
     end
-    redirect_to '/'
   end
 
   def edit
   end
 
+  def update
+    @user.update(user_params)
+    redirect_to @user
+  end
+
   def show
+    @user = User.find(params[:id])
   end
 
   private
