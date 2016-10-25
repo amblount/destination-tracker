@@ -7,13 +7,15 @@ Rails.application.routes.draw do
 
  delete '/logout' => 'sessions#destroy'
 
- get 'cities/new'
+ resources :cities
 
- get 'cities/edit'
+ # get 'cities/new'
 
- get 'cities/index'
+ # get 'cities/edit'
 
- get 'cities/show'
+ # get 'cities/index'
+
+ # get 'cities/:id', to: 'cities#show', as: 'city'
 
  resources :users
 
