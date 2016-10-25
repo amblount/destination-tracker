@@ -17,7 +17,7 @@ class SessionsController < ApplicationController
         if current_user
             #Authenticated! Yay!
             session[:current_user] = current_user
-            redirect_to books_path
+            redirect_to user_posts_path(user.id)
         else
             flash[:error] = "Incorrect password"
             redirect_to :back
@@ -26,7 +26,7 @@ class SessionsController < ApplicationController
         flash[:error] = "Email was not found"
         redirect_to :back
     end
-    
+
 end
 
 def destroy
