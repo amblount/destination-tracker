@@ -17,11 +17,7 @@
 //= require materialize/extras/nouislider
 //= require jquery_ujs
 //= require_tree .
-$(document).on('page:change', function() {
+$(document).on('turbolinks:load', function() {
 	console.log("Hi2")
-    $('select').material_select();
-  });
-$(document).ready(function() {
-	console.log("Hi")
     $('select').material_select();
   });
