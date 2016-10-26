@@ -33,6 +33,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     city_id = @user.city.id
     @city = City.find(city_id)
+    @posts = @user.posts
   end
 
   private

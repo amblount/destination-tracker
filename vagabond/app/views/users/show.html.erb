@@ -1,5 +1,4 @@
-<h3>Welcome: <%= @user.email %></h3>
-<h5>This is your profile page.</h5>
+<h5><%= @user.email %> profile page</h5>
 <div class="row">
   <div class="col s12 m7">
     <div class="card">
@@ -13,5 +12,34 @@
         <%= link_to 'edit', edit_user_path, method: "get" %>
       </div>
     </div>
+  </div>
+</div>
+
+<br><br><br>
+<div class="container">
+  <h5>Posts</h5>
+</div>
+
+<div class="container">
+  <div class="row">
+    <% @posts.in_groups_of(2, false) do |post_groups|  %>
+    <div class="row">
+			<% post_groups.each do |post| %>
+      <div class="col s6 m5">
+				<div class="chip">
+		      <img src="<%= post.user.image_url %>" alt="Contact Person"><%= post.user.email %>
+		    </div>
+        <div class="card-panel teal">
+          <span class="white-text">
+            <%= link_to post.name, user_post_path(post.user_id, post) %>
+            <p><%= post.content%></p>
+						<%= link_to "Edit", edit_city_post_path(@city.id, post.id) %> |
+ 					  <%= link_to "Delete", city_post_path(post.id), method: :delete %>
+          </span>
+        </div>
+      </div>
+			<% end %>
+    </div>
+    <% end %>
   </div>
 </div>
