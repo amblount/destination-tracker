@@ -7,7 +7,7 @@
       </div>
       <div class="card-content">
         <p class="card-title">Email: <%= @user.email %></p>
-        <p class="card-title">Join Date: <%= @user.created_at %></p>
+        <p class="card-title">Join Date: <%= @user.created_at.strftime("%B" + " " + "%d" + ", " + "%Y") %></p>
         <p class="card-title">Current City: <%= link_to @user.city.name, city_path(@city) %></p>
         <% if owned_by?(@user) %>
           <%= link_to 'edit', edit_user_path, method: "get" %>
