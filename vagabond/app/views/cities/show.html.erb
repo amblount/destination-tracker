@@ -1,19 +1,20 @@
 <h1><%= @city.name %></h1>
 
 <a ></a>
-<%= link_to "New Post", new_city_post_path(@city.id), class: "waves-effect waves-light btn" %> <br> <br>
+<i class="material-icons"><%= link_to "New Post", new_city_post_path(@city.id), class: "waves-effect waves-light btn" %> <br> <br>
 <div class="city-img">
 	<%= image_tag(@city.image_url) %>
 </div>
 <br><br>
 <div class="container">
   <div class="row">
-    <% @city.posts.each do |post| %>
+    <% @city.posts.in_groups_of(2) |post_groups| do  %>
     <div class="chip">
       <img src="<%= post.user.image_url %>" alt="Contact Person"><%= post.user.email %>
     </div>
     <div class="row">
-      <div class="col s12 m5">
+			<% post_groups.each do |post| %>
+      <div class="col s6 m5">
         <div class="card-panel teal">
           <span class="white-text">
             <%= link_to post.name, user_post_path(post.user_id, post) %>
@@ -23,6 +24,7 @@
           </span>
         </div>
       </div>
+			<% end %>
     </div>
     <% end %>
   </div>
