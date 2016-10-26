@@ -5,7 +5,9 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.create(user_params)
+    @user = User.new(user_params)
+    @user.city_id = params[:city][:city_id]
+    @user.save
 
     if @user.valid?
         flash[:success] = "Thanks! Please log in."
