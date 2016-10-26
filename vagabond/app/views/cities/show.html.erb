@@ -11,7 +11,7 @@
         <strong>Post Name: </strong><%= link_to post.name, user_post_path(post.user_id, post) %><br>
           <strong>by user: <strong> <%= post.user.email%><br>
           <%= post.content%><br><br>
-					<%= link_to "Edit", edit_city_post_path(post.id) %> |
+					<%= link_to "Edit", edit_city_post_path(@city.id, post.id) %> |
 					<%= link_to "Delete", city_post_path(post.id), method: :delete %>
       </div>
     </div>

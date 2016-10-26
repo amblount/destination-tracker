@@ -7,9 +7,7 @@
 	        <img src="<%= city.image_url %>">
 	      </div>
 	      <div class="card-content">
-	        <p class="card-title">name: <%= city.name %></p>
-					
-
+					<p class="card-title">Location: <%= link_to city.name, city_path(city) %></p>
 	      </div>
 	    </div>
 	  </div>

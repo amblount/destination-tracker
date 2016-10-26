@@ -10,16 +10,16 @@ cities = [
   ]
 
 users = [
-  {city_id: 1, email: Faker::Internet.email, password: "123456", image_url: Faker::Avatar.image},
-  {city_id: 3, email: Faker::Internet.email, password: "123456", image_url: Faker::Avatar.image},
-  {city_id: 2, email: Faker::Internet.email, password: "123456", image_url: Faker::Avatar.image}
+  {city_id: 22, email: Faker::Internet.email, password: "123456", image_url: Faker::Avatar.image},
+  {city_id: 23, email: Faker::Internet.email, password: "123456", image_url: Faker::Avatar.image},
+  {city_id: 24, email: Faker::Internet.email, password: "123456", image_url: Faker::Avatar.image}
   ]
 
 posts = [
-  {user_id: 1, city_id: 1, name: Faker::Hipster.sentence, content: Faker::Hipster.sentences(4)},
-  {user_id: 2, city_id: 2, name: Faker::Beer.name, content: Faker::Hipster.sentences(4)},
-  {user_id: 1, city_id: 3, name: Faker::Beer.name, content: Faker::Hipster.sentences(4)}
-]
+  {user_id: 7, city_id: 22, name: Faker::Hipster.sentence, content: Faker::Hipster.sentences(4)},
+  {user_id: 8, city_id: 23, name: Faker::Beer.name, content: Faker::Hipster.sentences(4)},
+  {user_id: 7, city_id: 24, name: Faker::Beer.name, content: Faker::Hipster.sentences(4)}
+  ]
 
 City.create(cities)
 User.create(users)
