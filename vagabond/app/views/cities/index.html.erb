@@ -1,4 +1,4 @@
-<h1>Cities#index</h1>
+<h1>Cities</h1>
 <% @cities.each do |city| %>
 	<div class="row">
 	  <div class="col s12 m7">
@@ -7,7 +7,7 @@
 	        <img src="<%= city.image_url %>">
 	      </div>
 	      <div class="card-content">
-					<p class="card-title">Location: <%= link_to city.name, city_path(city) %></p>
+					<p class="card-title"><%= link_to city.name, city_path(city) %></p>
 	      </div>
 	    </div>
 	  </div>
