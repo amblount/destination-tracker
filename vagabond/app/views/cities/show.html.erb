@@ -8,13 +8,13 @@
 <br><br>
 <div class="container">
   <div class="row">
-    <% @city.posts.in_groups_of(2) |post_groups| do  %>
-    <div class="chip">
-      <img src="<%= post.user.image_url %>" alt="Contact Person"><%= post.user.email %>
-    </div>
+    <% @city.posts.in_groups_of(2, false) do |post_groups|  %>
     <div class="row">
 			<% post_groups.each do |post| %>
       <div class="col s6 m5">
+				<div class="chip">
+		      <img src="<%= post.user.image_url %>" alt="Contact Person"><%= post.user.email %>
+		    </div>
         <div class="card-panel teal">
           <span class="white-text">
             <%= link_to post.name, user_post_path(post.user_id, post) %>
