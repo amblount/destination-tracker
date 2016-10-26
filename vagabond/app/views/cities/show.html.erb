@@ -3,18 +3,23 @@
 <div>
 	<%= image_tag(@city.image_url) %>
 </div>
-<% @city.posts.each do |post| %>
-<div class="row">
-  <div class="col s12 m7">
-    <div class="card">
-      <div class="card-content">
-        <strong>Post Name: </strong><%= link_to post.name, user_post_path(post.user_id, post) %><br>
-          <strong>by user: <strong> <%= post.user.email%><br>
-          <%= post.content%><br><br>
-					<%= link_to "Edit", edit_city_post_path(@city.id, post.id) %> |
-					<%= link_to "Delete", city_post_path(post.id), method: :delete %>
+<br><br>
+<div class="container">
+  <div class="row">
+    <% @city.posts.each do |post| %>
+    <div class="chip">
+      <img src="<%= post.user.image_url %>" alt="Contact Person"><%= post.user.email %>
+    </div>
+    <div class="row">
+      <div class="col s12 m5">
+        <div class="card-panel teal">
+          <span class="white-text">
+            <%= link_to post.name, user_post_path(post.user_id, post) %>
+            <p><%= post.content%></p>
+          </span>
+        </div>
       </div>
     </div>
+    <% end %>
   </div>
 </div>
-<% end %>
