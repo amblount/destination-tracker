@@ -1,6 +1,6 @@
 <h1><%= @city.name %></h1>
 <%= button_to 'New Post', new_city_post_path(@city.id), method: 'get' %> <br> <br>
-<div>
+<div class="city-img">
 	<%= image_tag(@city.image_url) %>
 </div>
 <% @city.posts.each do |post| %>
