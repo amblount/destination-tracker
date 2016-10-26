@@ -16,5 +16,12 @@ class ApplicationController < ActionController::Base
      end
    end
 
+  def require_login
+    unless current_user
+      #send an http response to stop program execution
+      redirect_to root_path
+    end
+  end
+
    helper_method :current_user
 end
