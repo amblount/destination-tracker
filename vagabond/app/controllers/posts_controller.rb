@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+  before_action :require_login, only: :new
   def new
     @post = Post.new
     @city = City.find(params[:city_id])
