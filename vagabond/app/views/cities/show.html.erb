@@ -19,8 +19,8 @@
           <span class="white-text">
             <%= link_to post.name, user_post_path(post.user_id, post) %>
             <p><%= post.content%></p>
-						<%= link_to "Edit", edit_city_post_path(@city.id, post.id) %> |
- 					  <%= link_to "Delete", city_post_path(post.id), method: :delete %>
+						<%= link_to "Edit", edit_city_post_path(@city.id, post.id), method: :get %> |
+ 					  <%= link_to "Delete", city_post_path(@city.id, post.id), method: :delete %>
           </span>
         </div>
       </div>
