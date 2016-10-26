@@ -1,6 +1,20 @@
-<br><br>
-<% @posts.each do |post| %>
-  <strong>Post Name: </strong><%= link_to post.name, user_post_path(post.user_id, post) %><br>
-  <strong>by user: <strong> <%= post.user.email%><br>
-  <%= post.content%><br><br>
-<% end %>
+<br><br><br>
+<div class="container">
+  <div class="row">
+    <% @posts.each do |post| %>
+    <div class="chip">
+      <img src="<%= post.user.image_url %>" alt="Contact Person"><%= post.user.email %>
+    </div>
+    <div class="row">
+      <div class="col s12 m5">
+        <div class="card-panel teal">
+          <span class="white-text">
+            <%= link_to post.name, user_post_path(post.user_id, post) %>
+            <p><%= post.content%></p>
+          </span>
+        </div>
+      </div>
+    </div>
+    <% end %>
+  </div>
+</div>
