@@ -23,5 +23,16 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def owned_by?(user)
+    return user == current_user
+  end
+
+  def owner_check(user)
+    unless owned_by?(user)
+      redirect_to root_path
+    end
+  end
+
    helper_method :current_user
+   helper_method :owned_by?
 end

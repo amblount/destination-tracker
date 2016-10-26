@@ -1,4 +1,8 @@
 <h1>Users#new</h1>
 <p>Find me in app/views/users/new.html.erb</p>
+<p><%= owned_by?(@user) %></p>
+<% if owned_by?(@user) %>
+	<%= render 'partials/sign_up_form' %>
+<% end %>
 
-<%= render 'partials/sign_up_form' %>
+
