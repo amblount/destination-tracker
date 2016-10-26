@@ -1,6 +1,9 @@
 <br><br><br>
 <div class="container">
   <div class="row">
+    <% unless @posts.length > 0 %>
+      <p> Make some posts! </p>
+    <% end %>
     <% @posts.each do |post| %>
     <div class="chip">
       <img src="<%= post.user.image_url %>" alt="Contact Person"><%= post.user.email %>
