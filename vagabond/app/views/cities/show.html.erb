@@ -1,7 +1,7 @@
 <h1><%= @city.name %></h1>
 
 <a ></a>
-<i class="material-icons"><%= link_to "New Post", new_city_post_path(@city.id), class: "waves-effect waves-light btn" %> <br> <br>
+<i class="material-icons"><%= link_to "New Post", new_city_post_path(@city.id), method: "get", class: "waves-effect waves-light btn" %> <br> <br>
 <div class="city-img">
 	<%= image_tag(@city.image_url) %>
 </div>
@@ -19,8 +19,10 @@
           <span class="white-text">
             <%= link_to post.name, user_post_path(post.user_id, post) %>
             <p><%= post.content%></p>
-						<%= link_to "Edit", edit_city_post_path(@city.id, post.id), method: :get %> |
- 					  <%= link_to "Delete", city_post_path(@city.id, post.id), method: :delete %>
+						<% if owned_by?(post.user) %>
+              <%= link_to "Edit", edit_city_post_path(@city.id, post.id), method: :get %> |
+              <%= link_to "Delete", city_post_path(@city.id, post.id), method: :delete %>
+            <% end %>
           </span>
         </div>
       </div>
