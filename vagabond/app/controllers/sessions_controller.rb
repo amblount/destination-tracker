@@ -17,7 +17,7 @@ class SessionsController < ApplicationController
         if current_user
             #Authenticated! Yay!
             session[:current_user] = current_user
-            redirect_to user_posts_path(user.id)
+            redirect_to user_path(user.id)
         else
             flash[:error] = "Incorrect password"
             redirect_to :back
