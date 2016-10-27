@@ -9,6 +9,30 @@ cities = [
   {name: "Gibraltar", image_url: "http://www.gibraltarbackgammon.com/images/slides/slide1.jpg"}
   ]
 
+
+10.times do
+  city_name = Faker::Address.city
+  city = City.create({
+    name: city_name,
+    image_url: Faker::Avatar.image(city_name.to_s).to_s
+    })
+  user = User.create({
+    city_id: city.id,
+    email: Faker::Internet.email,
+    password: "123456",
+    image_url: Faker::Avatar.image("person").to_s
+    })
+    5.times do
+      Post.create({
+        user_id: user.id,
+        city_id: city.id,
+        name: Faker::Hacker.noun,
+        content: Faker::Hipster.sentence(100)
+        })
+    end
+
+end
+
 users = [
   {city_id: 22, email: Faker::Internet.email, password: "123456", image_url: Faker::Avatar.image},
   {city_id: 23, email: Faker::Internet.email, password: "123456", image_url: Faker::Avatar.image},
@@ -16,9 +40,9 @@ users = [
   ]
 
 posts = [
-  {user_id: 7, city_id: 22, name: Faker::Hipster.sentence, content: Faker::Hipster.sentences(4)},
-  {user_id: 8, city_id: 23, name: Faker::Beer.name, content: Faker::Hipster.sentences(4)},
-  {user_id: 7, city_id: 24, name: Faker::Beer.name, content: Faker::Hipster.sentences(4)}
+  {user_id: 7, city_id: 22, name: Faker::Hipster.sentence, content: Faker::Hipster.sentence(50)},
+  {user_id: 8, city_id: 23, name: Faker::Beer.name, content: Faker::Hipster.sentence(50)},
+  {user_id: 7, city_id: 24, name: Faker::Beer.name, content: Faker::Hipster.sentence(50)}
   ]
 
 City.create(cities)
