@@ -1,0 +1,39 @@
+<div class="row">
+
+    <%= form_for @user do |f| %>
+
+      <div class="row">
+        <div class="input-field col s12">
+            <%= select("city", "city_id", City.all.collect {|c| [ c.name, c.id ] }, {prompt: 'Select City'}) %>
+
+          </div>
+      </div>
+      <!-- how are we going to get the cities to display so that the user can select one by name -->
+
+
+      <div class="row">
+        <div class="input-field col s12">
+            <%= f.text_field :image_url %>
+          <label for="city_id">Image Url</label>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="input-field col s12">
+            <%= f.email_field :email %>
+          <label for="email">Email</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+            <%= f.password_field :password %>
+          <label for="password">Password</label>
+        </div>
+      </div>
+
+        <%= f.submit "Submit" %>
+
+
+
+      <% end %>
+  </div>

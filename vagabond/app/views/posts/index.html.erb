@@ -1,0 +1,25 @@
+<br><br><br>
+<div class="container">
+  <div class="row">
+    <% unless @posts.length > 0 %>
+      <p> Make some posts! </p>
+    <% end %>
+    <% @posts.each do |post| %>
+    <div class="chip">
+      <img src="<%= post.user.image_url %>" alt="Contact Person"><%= post.user.email %>
+    </div>
+    <div class="row">
+      <div class="col s12 m5">
+        <div class="card-panel light-grey">
+          <span class="white-text">
+            <%= link_to post.name, user_post_path(post.user_id, post) %>
+            <p><%= post.content%></p>
+            <%= link_to "Edit", edit_city_post_path(post.city.id, post.id), method: :get %> |	
+ 					  <%= link_to "Delete", city_post_path(post.city.id, post.id), method: :delete %>
+          </span>
+        </div>
+      </div>
+    </div>
+    <% end %>
+  </div>
+</div>

@@ -1,0 +1,15 @@
+<h1>Cities</h1>
+<% @cities.each do |city| %>
+	<div class="row">
+	  <div class="col s12 m7">
+	    <div class="card">
+	      <div class="card-image">
+	        <img src="<%= city.image_url %>">
+	      </div>
+	      <div class="card-content">
+					<p class="card-title"><%= link_to city.name, city_path(city) %></p>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+<% end %>

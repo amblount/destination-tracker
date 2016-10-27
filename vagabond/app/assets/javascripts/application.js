@@ -11,6 +11,13 @@
 // about supported directives.
 //
 //= require jquery
-//= require jquery_ujs
+//= require materialize
+//= require jquery.turbolinks
 //= require turbolinks
+//= require materialize/extras/nouislider
+//= require jquery_ujs
 //= require_tree .
+$(document).on('turbolinks:load', function() {
+	console.log("Hi2")
+    $('select').material_select();
+  });

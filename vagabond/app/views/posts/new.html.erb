@@ -1,0 +1,20 @@
+<h2>Create a new post</h2>
+
+<div class="row">
+    <%= form_for [@city, @post], method: "post" do |f| %>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+            <%= f.text_field :name %>
+          <label for="name">Name</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+            <%= f.text_field :content %>
+          <label for="content">Content</label>
+        </div>
+      </div>
+        <%= f.submit "Submit" %>
+      <% end %>
+  </div>

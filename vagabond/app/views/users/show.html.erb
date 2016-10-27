@@ -1,0 +1,49 @@
+<h5><%= @user.email %> profile page</h5>
+<div class="row">
+  <div class="col s12 m7">
+    <div class="card">
+      <div class="card-image">
+        <img src="<%= @user.image_url %>">
+      </div>
+      <div class="card-content">
+        <p class="card-title"><strong>Email:</strong> <%= @user.email %></p>
+        <p class="card-title"><strong>Join Date:</strong> <%= @user.created_at.strftime("%B" + " " + "%d" + ", " + "%Y") %></p>
+        <p class="card-title"><strong>Current City:</strong> <%= link_to @user.city.name, city_path(@city) %></p>
+        <% if owned_by?(@user) %>
+          <%= link_to 'EDIT PROFILE', edit_user_path, method: "get" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<br><br><br>
+<div class="container">
+  <h5>Posts</h5>
+</div>
+
+<div class="container">
+  <div class="row">
+    <% @posts.in_groups_of(2, false) do |post_groups|  %>
+    <div class="row">
+			<% post_groups.each do |post| %>
+      <div class="col s6 m5">
+				<div class="chip">
+		      <img src="<%= post.user.image_url %>" alt="Contact Person"><%= post.user.email %>
+		    </div>
+        <div class="card-panel teal">
+          <span class="white-text">
+            <%= link_to post.name, user_post_path(post.user_id, post) %>
+            <p><%= post.content%></p>
+						<% if owned_by?(@user) %>
+              <%= link_to "Edit", edit_city_post_path(@city.id, post.id), method: :get %> |
+              <%= link_to "Delete", city_post_path(post.id), method: :delete %>
+            <% end %>
+          </span>
+        </div>
+      </div>
+			<% end %>
+    </div>
+    <% end %>
+  </div>
+</div>
